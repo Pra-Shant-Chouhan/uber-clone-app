@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import tw from "tailwind-styled-components"
 import Map from './component/map'
-
+import Link from "next/link"
 
 
 export default function Home() {
@@ -24,18 +24,28 @@ export default function Home() {
           </Profile>
         </Header>
         <ActionButtons>
-          <ActionButton>
-            <ActionButtonImage src= "https://i.ibb.co/KLh17VC/pngegg.png" alt="car-texi-img"></ActionButtonImage>
-        
-            Ride
-          </ActionButton>
-          <ActionButton>
-            <ActionButtonImage src="https://i.ibb.co/3FKt27r/taxi-app-png.png" alt="taxi-app-png"></ActionButtonImage>
-            
-            Wheels</ActionButton>
-          <ActionButton>
-            <ActionButtonImage src="https://i.ibb.co/yPpssjj/Png-Item-273860.png" alt="Png-Item-273860"></ActionButtonImage>
-            Reserve</ActionButton>
+
+          <Link href="/Search">
+            <ActionButton>
+              <ActionButtonImage src="https://i.ibb.co/KLh17VC/pngegg.png" alt="car-texi-img"></ActionButtonImage>
+
+              Ride
+            </ActionButton>
+          </Link>
+          <Link href="/Search">
+
+            <ActionButton>
+              <ActionButtonImage src="https://i.ibb.co/3FKt27r/taxi-app-png.png" alt="taxi-app-png"></ActionButtonImage>
+              Wheels
+            </ActionButton>
+          </Link>
+          <Link href="/Search">
+
+            <ActionButton>
+              <ActionButtonImage src="https://i.ibb.co/yPpssjj/Png-Item-273860.png" alt="Png-Item-273860"></ActionButtonImage>
+              Reserve
+            </ActionButton>
+          </Link>
         </ActionButtons>
 
         {/* InputButtons  */}
