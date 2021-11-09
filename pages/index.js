@@ -83,10 +83,10 @@ const ActionButtons = tw.div`
  flex 
 `
 const ActionButton = tw.div`
- flex bg-gray-400 flex-1 m-1 h-32 items-center flex-col justify-center rounded-lg transform hover:scale-105 transition text-xl
+ flex bg-blue-400 flex-1 m-1 h-32 items-center flex-col justify-center rounded-lg transform hover:scale-105 transition text-xl
 `
 const ActionButtonImage = tw.img`
 h-3/5
 `
 const InputButton = tw.div`
-h-20 bg-gray-200 text-2xl p-4 flex items-center mt-8`
+h-20 bg-blue-200 text-2xl p-4 flex items-center mt-8`
