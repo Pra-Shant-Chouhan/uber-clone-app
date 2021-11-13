@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import tw from "tailwind-styled-components"
 import Link from "next/link"
 
 
 
 const Search = () => {
+    const [pickup, setPickup] = useState("")
+    const [dropoff, setDropoff] = useState("")
     return (
         <Wrapper>
             {/* Button container  */}
             <ButtonContainer>
-                <Link href = "/">
+                <Link href="/">
                     <BackButton src="https://img.icons8.com/fluency/48/000000/left.png"></BackButton>
                 </Link>
-                    Back to Home
+                Back to Home
             </ButtonContainer>
             {/* INput Container  */}
             <InputContainer>
@@ -26,24 +28,40 @@ const Search = () => {
                 </FromToIcon>
 
                 <InputBoxes>
-                    <Input placeholder ="Enter Pick up Location"></Input>
-                    <Input placeholder= "Where to"></Input>
+                    <Input
+                        placeholder="Enter Pick up Location"
+                        value={pickup}
+                        onChange={(e) => setPickup(e.target.value)}>
+                    </Input>
+                    <Input
+                        placeholder="Where to"
+                        value={dropoff}
+                        onChange={(e) => setDropoff(e.target.value)}>
+                    </Input>
                 </InputBoxes>
-            <PlusIcon src="https://img.icons8.com/ultraviolet/40/000000/add--v2.png"></PlusIcon>
+                <PlusIcon src="https://img.icons8.com/ultraviolet/40/000000/add--v2.png"></PlusIcon>
             </InputContainer>
-           
+
             {/* saved places  */}
 
             <SavedPlaces>
                 <StarIcon src="https://img.icons8.com/ios-filled/50/000000/star--v2.png">
-                
+
                 </StarIcon>
                 Saved Places
             </SavedPlaces>
             {/* Confirm Location  */}
-            <ConfirmLocation>
-                Confim that Location
-            </ConfirmLocation>
+            <Link href={{
+                pathname: "/Confirm",
+                query: {
+                    pickup: pickup,
+                    dropoff: dropoff
+                }
+            }}>
+                <ConfirmLocation>
+                    Confim that Location
+                </ConfirmLocation>
+            </Link>
 
         </Wrapper>
     )
@@ -78,7 +96,7 @@ flex flex-col flex-1
 `
 const Input = tw.input`
 h-10 bg-blue-100 my-2 rounded-2 p-2  outline-none border-none
-` 
+`
 const PlusIcon = tw.img`
 w-10 h-10 ml-3
 `

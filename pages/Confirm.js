@@ -1,9 +1,15 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import tw from "tailwind-styled-components"
 import Map from './component/map'
+import { useRouter } from 'next/router'
 
 
 const Confirm = () => {
+    const router = useRouter()
+    const { pickup, dropoff } = router.query
+    console.log("pickup", pickup)
+    console.log("dropoff", dropoff)
+
     const [pickupCoordinates, setPickupCoordinates] = useState()
     const [dropoffCoordinates, setDropoffCoordinates] = useState()
 
