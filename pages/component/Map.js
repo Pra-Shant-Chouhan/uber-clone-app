@@ -17,13 +17,22 @@ const Map = (props) => {
 
         if (props.pickupCoordinates) {
             addToMap(map, props.pickupCoordinates)
-            
+
         }
         if (props.dropoffCoordinates) {
             addToMap(map, props.dropoffCoordinates)
-            
+
         }
-    },[props.pickupCoordinates, props.dropoffCoordinates]);
+        if (props.pickupCoordinates && props.dropoffCoordinates) {
+            map.fitBounds([
+                props.pickupCoordinates,
+                props.dropoffCoordinates
+            ],
+                { padding: 60 }
+            )
+        }
+    }, [props.pickupCoordinates, props.dropoffCoordinates]);
+
 
     const addToMap = (map, coordinates) => {
         const marker1 = new mapboxgl.Marker()
@@ -31,7 +40,7 @@ const Map = (props) => {
             .addTo(map);
     }
 
-   
+
 
     return (
         <Wrapper id="map"></Wrapper>
