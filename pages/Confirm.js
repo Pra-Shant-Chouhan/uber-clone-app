@@ -64,7 +64,7 @@ const Wrapper = tw.div`
 flex h-screen flex-col bg-blue-200
 `
 const CarsContainer = tw.div`
-flex-1 flex flex-col bg-blue-200
+flex-1 flex flex-col bg-blue-200 h-1/2
 `
 
 const ConfirmButtonContainer = tw.div`
