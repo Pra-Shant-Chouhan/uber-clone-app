@@ -3,6 +3,8 @@ import tw from "tailwind-styled-components"
 import Map from './component/map'
 import { useRouter } from 'next/router'
 import RideSelector from './component/RideSelector'
+import Link from "next/link"
+
 
 
 const Confirm = () => {
@@ -10,8 +12,8 @@ const Confirm = () => {
     const { pickup, dropoff } = router.query
 
 
-    const [pickupCoordinates, setPickupCoordinates] = useState()
-    const [dropoffCoordinates, setDropoffCoordinates] = useState()
+    const [pickupCoordinates, setPickupCoordinates] = useState([0, 0])
+    const [dropoffCoordinates, setDropoffCoordinates] = useState([0, 0])
 
     const getPickupCordinates = (pickup) => {
 
@@ -45,11 +47,12 @@ const Confirm = () => {
     }, [pickup, dropoff])
 
     return (
-        <Wrapper>
+        <Wrapper> 
             <Map pickupCoordinates={pickupCoordinates}
                 dropoffCoordinates={dropoffCoordinates} />
             <CarsContainer>
-                <RideSelector />
+                <RideSelector pickupCoordinates={pickupCoordinates}
+                dropoffCoordinates={dropoffCoordinates} />
                 <ConfirmButtonContainer>
                     Confirm Your RideX
                 </ConfirmButtonContainer>
@@ -59,6 +62,7 @@ const Confirm = () => {
 }
 
 export default Confirm
+
 
 const Wrapper = tw.div`
 flex h-screen flex-col bg-blue-200
