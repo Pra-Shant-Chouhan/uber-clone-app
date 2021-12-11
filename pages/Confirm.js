@@ -48,6 +48,12 @@ const Confirm = () => {
 
     return (
         <Wrapper> 
+            <ButtonContainer>
+                <Link href="/Search">
+                    <BackButton src="https://img.icons8.com/fluency/48/000000/left.png"></BackButton>
+                </Link>
+        
+            </ButtonContainer>
             <Map pickupCoordinates={pickupCoordinates}
                 dropoffCoordinates={dropoffCoordinates} />
             <CarsContainer>
@@ -73,4 +79,10 @@ flex-1 flex flex-col bg-blue-200 h-1/2
 
 const ConfirmButtonContainer = tw.div`
 bg-blue-700 flex items-center align-center justify-center py-3 rounded-full my-2 hover:text-green-200 text-red-200
+`
+const ButtonContainer = tw.div`
+rounded-full absolute top-4 left-4 z-10 bg-blue-200
+`
+const BackButton = tw.img`
+h-full object-contain
 `
