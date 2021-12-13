@@ -1,14 +1,33 @@
-
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import tw from "tailwind-styled-components"
 import Map from './component/map'
 import Link from "next/link"
+import { auth } from '../firebase'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { useRouter } from 'next/router';
+
 
 
 export default function Home() {
+  const [user, setUser] = useState()
+  const router = useRouter()
 
+  useEffect(() => {
+    return onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser({
+          name: user.displayName,
+          photoUrl: user.photoURL,
+        })
+      } else {
+        setUser(null)
+        router.push('/login')
+      }
+    })
+  }, [])
 
   return (
     <Wrapper>
@@ -19,8 +38,9 @@ export default function Home() {
           <UserLogo src="https://i.ibb.co/7bjbWtL/uber-logo.jpg" alt="uber-logo" ></UserLogo>
 
           <Profile>
-            <Name>Prashant Chouhan</Name>
-            <UserImage src="https://i.ibb.co/R6Kb4nW/IMG-20190530-WA0020.jpg"></UserImage>
+            <Name>{user && user.name}</Name>
+            <UserImage src={user && user.photoUrl}
+              onClick={() => signOut(auth)} />
           </Profile>
         </Header>
         <ActionButtons>
@@ -77,7 +97,7 @@ const Name = tw.div`
   mx-4 w-20 text-lg
 `
 const UserImage = tw.img`
-h-20 w-20 rounded-full border border-gray-200 p-px
+h-20 w-20 rounded-full border border-gray-200 p-px cursor-pointer
 `
 const ActionButtons = tw.div`
  flex 
