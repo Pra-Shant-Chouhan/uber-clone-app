@@ -13,7 +13,7 @@ const Login = () => {
                router.push('/')
            }
        })
-    }, [])
+    }, []) // eslint-disable-line
 
     return(
         <Wrapper>

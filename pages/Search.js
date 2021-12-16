@@ -11,7 +11,7 @@ const Search = () => {
         <Wrapper>
             {/* Button container  */}
             <ButtonContainer>
-                <Link href="/">
+                <Link href="/" passHref>
                     <BackButton src="https://img.icons8.com/fluency/48/000000/left.png"></BackButton>
                 </Link>
                 Back to Home
@@ -57,7 +57,7 @@ const Search = () => {
                     pickup: pickup,
                     dropoff: dropoff
                 }
-            }}>
+            }}passHref>
                 <ConfirmLocation>
                     Confim that Location
                 </ConfirmLocation>

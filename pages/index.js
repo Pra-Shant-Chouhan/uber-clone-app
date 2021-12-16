@@ -27,7 +27,7 @@ export default function Home() {
         router.push('/login')
       }
     })
-  }, [])
+  }, [])// eslint-disable-line
 
   return (
     <Wrapper>
@@ -45,21 +45,21 @@ export default function Home() {
         </Header>
         <ActionButtons>
 
-          <Link href="/Search">
+          <Link href="/Search" passHref>
             <ActionButton>
               <ActionButtonImage src="https://i.ibb.co/KLh17VC/pngegg.png" alt="car-texi-img"></ActionButtonImage>
 
               Ride
             </ActionButton>
           </Link>
-          <Link href="/Search">
+          <Link href="/Search" passHref>
 
             <ActionButton>
               <ActionButtonImage src="https://i.ibb.co/3FKt27r/taxi-app-png.png" alt="taxi-app-png"></ActionButtonImage>
               Wheels
             </ActionButton>
           </Link>
-          <Link href="/Search">
+          <Link href="/Search" passHref>
 
             <ActionButton>
               <ActionButtonImage src="https://i.ibb.co/yPpssjj/Png-Item-273860.png" alt="Png-Item-273860"></ActionButtonImage>
