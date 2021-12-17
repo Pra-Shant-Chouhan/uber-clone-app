@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import tw from "tailwind-styled-components"
-import Map from '../component/map.js'
+import Map from '../component/Map.js'
 import Link from "next/link"
 import { auth } from '../firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
