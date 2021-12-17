@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import tw from "tailwind-styled-components"
-import Map from '../component/map.js'
+import Map from '../component/Map.js'
 import { useRouter } from 'next/router'
 import RideSelector from '../component/RideSelector'
 import Link from "next/link"
