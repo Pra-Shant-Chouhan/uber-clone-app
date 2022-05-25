@@ -71,7 +71,7 @@ const Wrapper = tw.div`
 bg-blue-200 h-screen
 `
 const ButtonContainer = tw.div`
-bg-blue-100 px-4  my-2 flex  items-center  
+bg-yellow-100 px-4  my-2 flex  items-center  
 `
 const BackButton = tw.img`
 h-12  transform hover:scale-105 transition
